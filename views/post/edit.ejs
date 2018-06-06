@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-</head>
-
-<body>
+<%- include ../partials/header.ejs %>
     <form action="/post/update/<%= id %>" method="post">
         <input type="text" name="title" value="<%= post.title %>">
         <textarea name="content"><%= post.content %></textarea>
         <button type="submit">Modifier</button>
     </form>
     <a href="/">Retourner à l'accueil</a>
-</body>
 
-</html>
+    <%- include ../partials/footer.ejs %>
