@@ -1,10 +1,12 @@
-<li>
-    <div>
-        <%= post.title %>
+<div class="card" class="col-sm">
+    <div class="card-body">
+        <h5 class="card-title">
+            <%= post.title %>
+        </h5>
+        <p class="card-text">
+            <%= post.content %>
+        </p>
+        <a href="/post/delete/<%=i %>" class="btn btn-primary">Supprimer</a>
+        <a href="/post/edit/<%=i %>" class="btn btn-primary">Modifier</a>
     </div>
-    <div>
-        <%= post.content %>
-    </div>
-    <a href='/post/delete/<%=i %>'>Supprimer</a>
-    <a href='/post/edit/<%= i %>'>Modifier</a>
-</li>
+</div>

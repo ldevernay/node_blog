@@ -1,9 +1,11 @@
 <%- include partials/header.ejs %>
-    <ul>
-        <% posts.forEach(function(post, index){ %>
-            <%- include('post/show', {post: post, i: index}) %>
-                <% }) %>
-    </ul>
+    <div class="container">
+        <div class="row">
+            <% posts.forEach(function(post, index){ %>
+                <%- include('post/show', {post: post, i: index}) %>
+                    <% }) %>
+        </div>
+    </div>
     <a href="/post/new">Créer un nouveau post</a>
 
     <%- include partials/footer.ejs %>
