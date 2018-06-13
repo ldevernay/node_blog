@@ -1,22 +1,40 @@
 <%- include ../partials/header.ejs %>
-    <h5 class="card-title">
+    <h2 class="card-title">
         <%= post.title %>
-    </h5>
+    </h2>
     <p class="card-text">
         <%= post.content %>
     </p>
-    <h6>Commentaires</h6>
+    <h3>Commentaires</h3>
     <div>
-        <ul>
+        <ul class="list-group">
             <% post.comments.forEach(function(comment, index){%>
-                <li>
-                    <%= comment.content %>, écrit par
-                        <%= comment.author %>
+                <li class="list-group-item">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">
+                            <%= comment.content %>
+                        </p>
+                        <footer class="blockquote-footer">écrit par
+                            <cite>
+                                <%= comment.author %>
+                            </cite>
+                        </footer>
+                    </blockquote>
                 </li>
                 <% }) %>
         </ul>
+        <form action="/comment/create/<%=id%>" method="POST">
+            <input type="text" name="content">
+            <button type="submit" class="btn btn-primary">Soumettre</button>
+        </form>
     </div>
-    <a href="/post/edit/<%=id %>" class="btn btn-primary">Modifier</a>
-    <a href="/post/delete/<%=id %>" class="btn btn-danger">Supprimer</a>
-    <a href="/" class="btn btn-primary">Retourner à l'accueil</a>
+    <a href="/post/edit/<%=id %>">
+        <i class="fas fa-pencil-alt"></i>
+    </a>
+    <a href="/post/delete/<%=id %>">
+        <i class="fas fa-trash-alt"></i>
+    </a>
+    <a href="/">
+        <i class="fas fa-home"></i>
+    </a>
     <%- include ../partials/footer.ejs %>

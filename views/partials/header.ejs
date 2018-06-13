@@ -22,11 +22,11 @@
                 <input id="password_register" type="password">
                 <button onclick="register()">Register</button>
             </div>
-            <div id="login_div">
-                <input id="email_login" type="email">
-                <input id="password_login" type="password">
-                <button onclick="login()">Log In</button>
-            </div>
+            <form action="/login" method="POST">
+                <input name="email" type="email">
+                <input name="password" type="password">
+                <button type="submit" class="btn btn-primary">Se connecter</button>
+            </form>
 
             <div id="when_connected">
                 <button class="btn btn-warning" onclick="logout()">Log Out</button>
