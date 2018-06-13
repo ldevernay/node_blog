@@ -1,6 +1,7 @@
 var fs = require('fs');
 
 exports.commit = function(data) {
+  // console.log(JSON.stringify(data));
   fs.writeFile('data.json', JSON.stringify(data));
   console.log('JSON successfully modified!');
 };

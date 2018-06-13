@@ -2,13 +2,16 @@ var express = require('express');
 var data = require('./data.json');
 var bodyparser = require('body-parser');
 var fs = require('fs');
+
 var { commit, redirect } = require('./utils/utils.js');
 
 var app = express();
 
 app.use(bodyparser.urlencoded({ extended: false }));
+app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
+
 
 app.get('/', function(req, res) {
   res.render('index', {

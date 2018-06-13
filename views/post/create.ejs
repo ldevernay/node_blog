@@ -1,18 +1,18 @@
 <%- include ../partials/header.ejs %>
-    <div class="container">
-        <div class="col-sm">
-            <form action="/post/create" method="post">
-                <div class="form-group">
-                    <label for="post_title">Titre du message</label>
-                    <input type="text" name="title" id="post_title" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="post_content">Contenu du message</label>
-                    <textarea name="content" id="post_content" class="form-control"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Soumettre</button>
-            </form>
-            <a href="/" class="btn btn-primary">Retourner à l'accueil</a>
-        </div>
+<div class="container">
+    <div class="col-sm">
+        <form action="/post/create" method="post">
+            <div class="form-group">
+                <label for="post_title">Titre du message</label>
+                <input type="text" name="title" id="post_title" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="post_content">Contenu du message</label>
+                <textarea name="content" id="post_content" class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Soumettre</button>
+        </form>
+        <a href="/" class="btn btn-primary">Retourner à l'accueil</a>
     </div>
-    <%- include ../partials/footer.ejs %>
+</div>
+<%- include ../partials/footer.ejs %>
