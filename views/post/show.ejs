@@ -1,12 +1,20 @@
-<div class="card" class="col-sm">
+<div class="card">
     <div class="card-body">
-        <h5 class="card-title">
-            <%= post.title %>
-        </h5>
-        <p class="card-text">
-            <%= post.content %>
-        </p>
-        <a href="/post/edit/<%=i %>" class="btn btn-primary">Modifier</a>
-        <a href="/post/delete/<%=i %>" class="btn btn-danger">Supprimer</a>
+        <a href="/post/read/<%=i %>" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between"></div>
+            <h5 class="mb-1">
+                <%= post.title %>
+            </h5>
+            <p class="mb-1">
+                <%= post.content %>
+            </p>
+            <a href="/post/edit/<%=i %>">
+                <i class="fas fa-pencil-alt"></i>
+            </a>
+            <a href="/post/delete/<%=i %>">
+                <i class="fas fa-trash-alt"></i>
+            </a>
     </div>
+    </a>
+</div>
 </div>

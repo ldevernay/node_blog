@@ -2,11 +2,25 @@
   "posts": [
     {
       "title": "1",
-      "content": "tregrehe"
+      "content": "tregrehe",
+      "comments": [
+        {
+          "content": "C'est nul",
+          "author": "Toto",
+          "date": ""
+        }
+      ]
     },
     {
       "title": "2",
-      "content": "tregreheqeggzrqy"
+      "content": "tregreheqeggzrqy",
+      "comments": [
+        {
+          "content": "C'est nul",
+          "author": "Toto",
+          "date": ""
+        }
+      ]
     }
   ]
 }

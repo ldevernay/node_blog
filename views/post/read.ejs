@@ -1,0 +1,22 @@
+<%- include ../partials/header.ejs %>
+    <h5 class="card-title">
+        <%= post.title %>
+    </h5>
+    <p class="card-text">
+        <%= post.content %>
+    </p>
+    <h6>Commentaires</h6>
+    <div>
+        <ul>
+            <% post.comments.forEach(function(comment, index){%>
+                <li>
+                    <%= comment.content %>, écrit par
+                        <%= comment.author %>
+                </li>
+                <% }) %>
+        </ul>
+    </div>
+    <a href="/post/edit/<%=id %>" class="btn btn-primary">Modifier</a>
+    <a href="/post/delete/<%=id %>" class="btn btn-danger">Supprimer</a>
+    <a href="/" class="btn btn-primary">Retourner à l'accueil</a>
+    <%- include ../partials/footer.ejs %>

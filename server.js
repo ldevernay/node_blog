@@ -12,7 +12,6 @@ app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
 
-
 app.get('/', function(req, res) {
   res.render('index', {
     posts: data.posts
@@ -38,6 +37,11 @@ app.get('/post/edit/:id', function(req, res) {
   res.render('post/edit', { post: post_edit, id: req.params.id });
 });
 
+app.get('/post/read/:id', function(req, res) {
+  var post_read = data.posts[req.params.id];
+  res.render('post/read', { post: post_read, id: req.params.id });
+});
+
 app.post('/post/update/:id', function(req, res) {
   var post_id = req.params.id;
   data.posts[post_id] = {
@@ -49,7 +53,7 @@ app.post('/post/update/:id', function(req, res) {
 });
 
 app.get('/post/delete/:id', function(req, res) {
-  data.posts.splice(data.posts[req.params.id], 1);
+  data.posts.splice(req.params.id, 1);
   commit(data);
   redirect(res, data);
 });

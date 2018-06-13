@@ -1,11 +1,11 @@
 <%- include partials/header.ejs %>
-    <div class="container">
-        <div class="row">
-            <% posts.forEach(function(post, index){ %>
-                <%- include('post/show', {post: post, i: index}) %>
-                    <% }) %>
-        </div>
+    <div class="list-group">
+        <% posts.forEach(function(post, index){ %>
+            <%- include('post/show', {post: post, i: index}) %>
+                <% }) %>
     </div>
-    <a href="/post/new" class="btn btn-primary">Créer un nouveau post</a>
+    <a href="/post/new" style="font-size:3em;">
+        <i class="fas fa-plus"></i>
+    </a>
 
     <%- include partials/footer.ejs %>

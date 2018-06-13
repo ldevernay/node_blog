@@ -1,1 +1,26 @@
-{"posts":[{"title":"Titre 1","content":"exemple"},{"title":"Titre 2","content":"second exemple"},{"title":"qgzgrzqgh","content":"zGERZQHZRQHZQRH"},{"title":"hehe","content":"sgqehetszhrsyj"}]}
+{
+  "posts": [
+    {
+      "title": "1",
+      "content": "tregrehe",
+      "comments": [
+        {
+          "content": "C'est nul",
+          "author": "Toto",
+          "date": ""
+        }
+      ]
+    },
+    {
+      "title": "2",
+      "content": "tregreheqeggzrqy",
+      "comments": [
+        {
+          "content": "C'est nul",
+          "author": "Toto",
+          "date": ""
+        }
+      ]
+    }
+  ]
+}
