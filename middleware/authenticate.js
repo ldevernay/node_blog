@@ -1,24 +1,4 @@
-var firebase = require('firebase');
-require('firebase/auth');
-require('firebase/database');
-// Initialize Firebase for the application
-var config = {
-  apiKey: 'AIzaSyDpYuXPcgMvLovxrio8GiRSNNU3_h3vcgg',
-  authDomain: 'node-blog-46ee1.firebaseapp.com',
-  databaseURL: 'https://node-blog-46ee1.firebaseio.com',
-  projectId: 'node-blog-46ee1',
-  storageBucket: '',
-  messagingSenderId: '803140928732'
-};
-
-var user;
-
-firebase.initializeApp(config);
-
-firebase.auth().onAuthStateChanged(function(user) {
-  console.log(user);
-  this.user = user;
-});
+var data = require('./data.json');
 
 exports.authenticate = {
   isAuthenticated: function(req, res, next) {
