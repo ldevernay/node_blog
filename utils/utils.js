@@ -1,4 +1,5 @@
 var fs = require('fs');
+var { authenticate } = require('../middleware/authenticate.js');
 
 exports.commit = function(data) {
   // console.log(JSON.stringify(data));
@@ -8,6 +9,7 @@ exports.commit = function(data) {
 
 exports.redirect = function(res, data) {
   res.render('index', {
-    posts: data.posts
+    posts: data.posts,
+    user: authenticate.getUser()
   });
 };

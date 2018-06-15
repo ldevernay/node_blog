@@ -16,21 +16,13 @@
 
     <header>
         <nav>
-
-            <div id="register_div">
-                <input id="email_register" type="email">
-                <input id="password_register" type="password">
-                <button onclick="register()">Register</button>
-            </div>
-            <form action="/login" method="POST">
-                <input name="email" type="email">
-                <input name="password" type="password">
-                <button type="submit" class="btn btn-primary">Se connecter</button>
-            </form>
-
-            <div id="when_connected">
-                <button class="btn btn-warning" onclick="logout()">Log Out</button>
-            </div>
-
+            <% if(user != ""){ %>
+                <a href="/logout">Se déconnecter</a>
+                <% } else {%>
+                    <a href="/login">Se connecter</a>
+                    <% } %>
+                        <div>Bonjour
+                            <%= user.email %>
+                        </div>
         </nav>
     </header>

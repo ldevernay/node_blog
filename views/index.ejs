@@ -4,8 +4,10 @@
             <%- include('post/show', {post: post, i: index}) %>
                 <% }) %>
     </div>
-    <a href="/post/new" style="font-size:3em;">
-        <i class="fas fa-plus"></i>
-    </a>
+    <% if (user){ %>
+        <a href="/post/new" style="font-size:3em;">
+            <i class="fas fa-plus"></i>
+        </a>
+        <%  } %>
 
-    <%- include partials/footer.ejs %>
+            <%- include partials/footer.ejs %>

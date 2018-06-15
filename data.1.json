@@ -26,5 +26,6 @@
       "email": "toto@bob.com",
       "password": "toto"
     }
-  ]
+  ],
+  "currentUser": ""
 }

@@ -1,9 +1,11 @@
-var data = require('./data.json');
+var data = require('../data.json');
 
 exports.authenticate = {
+  getUser: function() {
+    return data.currentUser;
+  },
   isAuthenticated: function(req, res, next) {
-    var user = firebase.auth().currentUser;
-    console.log(user);
+    var user = data.currentUser;
     if (user) {
       req.user = user;
       next();
@@ -12,21 +14,12 @@ exports.authenticate = {
     }
   },
   login: function(email, password) {
-    console.log('firebase');
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorMessage);
-      })
-      .then(function() {
-        console.log('logged in');
-      });
-  },
-  getUser: function() {
-    return this.user;
+    var filterUser = function(elem) {
+      return elem.email == email && elem.password == password;
+    };
+    var users = data.users.filter(filterUser);
+    if ((users.length = 1)) {
+      return users[0];
+    }
   }
 };

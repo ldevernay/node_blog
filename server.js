@@ -13,21 +13,32 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
-  res.render('index', {
-    posts: data.posts
+  redirect(res, data);
+});
+
+app.get('/login', function(req, res) {
+  res.render('user/login', {
+    user: authenticate.getUser()
   });
 });
 
-app.post('/login', function(req, res) {
-  console.log('login');
-  authenticate.login(req.body.email, req.body.password);
-  res.render('index', {
-    posts: data.posts
-  });
+app.post('/sign_in', function(req, res) {
+  var user = authenticate.login(req.body.email, req.body.password);
+  data.currentUser = user;
+  commit(data);
+  redirect(res, data);
 });
 
-app.get('/post/new', function(req, res) {
-  res.render('post/create');
+app.get('/logout', function(req, res) {
+  data.currentUser = '';
+  commit(data);
+  redirect(res, data);
+});
+
+app.get('/post/new', authenticate.isAuthenticated, function(req, res) {
+  res.render('post/create', {
+    user: authenticate.getUser()
+  });
 });
 
 app.post('/post/create', function(req, res) {
@@ -42,12 +53,20 @@ app.post('/post/create', function(req, res) {
 
 app.get('/post/edit/:id', function(req, res) {
   var post_edit = data.posts[req.params.id];
-  res.render('post/edit', { post: post_edit, id: req.params.id });
+  res.render('post/edit', {
+    post: post_edit,
+    id: req.params.id,
+    user: authenticate.getUser()
+  });
 });
 
 app.get('/post/read/:id', function(req, res) {
   var post_read = data.posts[req.params.id];
-  res.render('post/read', { post: post_read, id: req.params.id });
+  res.render('post/read', {
+    post: post_read,
+    id: req.params.id,
+    user: authenticate.getUser()
+  });
 });
 
 app.post('/comment/create/:id', authenticate.isAuthenticated, function(
@@ -63,7 +82,11 @@ app.post('/comment/create/:id', authenticate.isAuthenticated, function(
   };
   post_read.comments.push(comment);
   commit(data);
-  res.render('post/read', { post: post_read, id: req.params.id });
+  res.render('post/read', {
+    post: post_read,
+    id: req.params.id,
+    user: authenticate.getUser()
+  });
 });
 
 app.post('/post/update/:id', function(req, res) {

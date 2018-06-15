@@ -23,18 +23,22 @@
                 </li>
                 <% }) %>
         </ul>
-        <form action="/comment/create/<%=id%>" method="POST">
-            <input type="text" name="content">
-            <button type="submit" class="btn btn-primary">Soumettre</button>
-        </form>
+        <% if (user){ %>
+            <form action="/comment/create/<%=id%>" method="POST">
+                <input type="text" name="content">
+                <button type="submit" class="btn btn-primary">Soumettre</button>
+            </form>
+            <% } %>
     </div>
-    <a href="/post/edit/<%=id %>">
-        <i class="fas fa-pencil-alt"></i>
-    </a>
-    <a href="/post/delete/<%=id %>">
-        <i class="fas fa-trash-alt"></i>
-    </a>
-    <a href="/">
-        <i class="fas fa-home"></i>
-    </a>
-    <%- include ../partials/footer.ejs %>
+    <% if (user){ %>
+        <a href="/post/edit/<%=id %>">
+            <i class="fas fa-pencil-alt"></i>
+        </a>
+        <a href="/post/delete/<%=id %>">
+            <i class="fas fa-trash-alt"></i>
+        </a>
+        <% } %>
+            <a href="/">
+                <i class="fas fa-home"></i>
+            </a>
+            <%- include ../partials/footer.ejs %>
