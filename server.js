@@ -4,6 +4,9 @@ var bodyparser = require('body-parser');
 var fs = require('fs');
 var { commit, redirect } = require('./utils/utils.js');
 var { authenticate } = require('./middleware/authenticate.js');
+var moment = require('moment');
+
+moment().locale('fr');
 
 var app = express();
 
@@ -46,6 +49,7 @@ app.post('/post/create', function(req, res) {
     title: req.body.title,
     content: req.body.content,
     author: authenticate.getUser().email,
+    date: moment().format('DD/MM/YYYY, h:mm:ss'),
     comments: []
   };
   data.posts.push(post);
@@ -80,7 +84,7 @@ app.post('/comment/create/:id', authenticate.isAuthenticated, function(
   var comment = {
     content: req.body.content,
     author: user.email,
-    date: ''
+    date: moment().format('DD/MM/YYYY, h:mm:ss')
   };
   post_read.comments.push(comment);
   commit(data);
@@ -96,7 +100,9 @@ app.post('/post/update/:id', function(req, res) {
   data.posts[post_id] = {
     title: req.body.title,
     content: req.body.content,
-    author: authenticate.getUser().email
+    author: authenticate.getUser().email,
+    date: moment().format('DD/MM/YYYY, h:mm:ss'),
+    comments: data.posts[post_id].comments
   };
   commit(data);
   redirect(res, data);

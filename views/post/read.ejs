@@ -3,7 +3,8 @@
         <%= post.title %>
     </h2>
     <h6 class="card-subtitle mb-2 text-muted">Ecrit par
-        <%= post.author %>
+        <%= post.author %>, le
+            <%= post.date %>
     </h6>
     <p class="card-text">
         <%= post.content %>
@@ -19,7 +20,8 @@
                         </p>
                         <footer class="blockquote-footer">écrit par
                             <cite>
-                                <%= comment.author %>
+                                <%= comment.author %>, le
+                                    <%= post.date %>
                             </cite>
                         </footer>
                     </blockquote>
