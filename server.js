@@ -44,7 +44,9 @@ app.get('/post/new', authenticate.isAuthenticated, function(req, res) {
 app.post('/post/create', function(req, res) {
   var post = {
     title: req.body.title,
-    content: req.body.content
+    content: req.body.content,
+    author: authenticate.getUser().email,
+    comments: []
   };
   data.posts.push(post);
   commit(data);
@@ -93,7 +95,8 @@ app.post('/post/update/:id', function(req, res) {
   var post_id = req.params.id;
   data.posts[post_id] = {
     title: req.body.title,
-    content: req.body.content
+    content: req.body.content,
+    author: authenticate.getUser().email
   };
   commit(data);
   redirect(res, data);

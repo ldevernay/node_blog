@@ -3,6 +3,7 @@
     {
       "title": "1",
       "content": "tregrehe",
+      "author": "bob",
       "comments": [
         { "content": "C'est nul", "author": "Toto", "date": "" },
         { "content": "C'est nul!!!", "author": "Toto", "date": "" }
@@ -11,6 +12,7 @@
     {
       "title": "2",
       "content": "tregreheqeggzrqy",
+      "author": "bob",
       "comments": [
         { "content": "C'est nul", "author": "Toto", "date": "" },
         { "content": "C'est nul!!!!", "author": "Toto", "date": "" }
@@ -18,14 +20,8 @@
     }
   ],
   "users": [
-    {
-      "email": "bob@bob.com",
-      "password": "testing"
-    },
-    {
-      "email": "toto@bob.com",
-      "password": "toto"
-    }
+    { "email": "bob@bob.com", "password": "testing" },
+    { "email": "toto@bob.com", "password": "toto" }
   ],
   "currentUser": ""
 }
